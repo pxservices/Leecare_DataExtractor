@@ -1,0 +1,182 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadProgressNotes" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="679,500" sap2010:WorkflowViewState.IdRef="DownloadProgressNotes_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DownloadProgressNotes" sap:VirtualizedContainerService.HintSize="541,377" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[PdfFlag]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[WordFlag]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[RtfFlag]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[FolderPath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[path.join(in_ReportPath,"Betty Alexander","DetailedCarePlan")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,531" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Progress Notes'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#resident/5894" DesignTimeRectangle="762, 368, 63, 30" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Progress Notes ' parentid='divMainContainer' tag='SPAN' class='resident-quick-icon-label text-center' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Progress Notes ' parentid='divMainContainer' tag='SPAN' class='resident-quick-icon-label text-center' type='' check:text='Progress Notes' /&gt;" Guid="5c0093a0-fd52-4953-a72f-7ae650ce1823" InformativeScreenshot="7cd160aab504566e04b80accdd3da135.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Report'" sap:VirtualizedContainerService.HintSize="354,218" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#home/progressnotes/resident/5894" CVScreenId="2794206b-9286-4986-8e6b-605469a83998" CvElementArea="140, 220, 67, 35" CvTextArea="164, 231, 36, 15" CvTextArgument="Report" CvType="Button" DesignTimeRectangle="142, 222, 62, 30" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='divMainContainer' tag='A' aaname=' Report' innertext=' Report' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='divMainContainer' tag='A' aaname=' Report' innertext=' Report' type='' class='lc-pnotes-print-report ms-1 ms-lg-2 pnotes-report bi bi-printer-fill pn-button-shadow' check:text='Report' /&gt;" Guid="085c8204-5783-49bb-878b-aae6fe27d82a" InformativeScreenshot="3f3f42ff0b4ea18a24cc51d3606aad92.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care - Progress Notes' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 736" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="0be15556c75590050c124b4be05108ab.jpg" Selector="&lt;html app='chrome.exe' title='Lee Care*' /&gt;" Title="Lee Care - Betty ALEXANDER" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
