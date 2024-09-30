@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence2" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="628,500" sap2010:WorkflowViewState.IdRef="Sequence2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence2" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="943,1167" sap2010:WorkflowViewState.IdRef="Sequence2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:umae="clr-namespace:UiPath.MicrosoftOffice365.Activities.Excel;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafe="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Models;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -41,6 +41,21 @@
       <x:String>UiPath.Shared.Activities.Business</x:String>
       <x:String>UiPath.DataService.Activities</x:String>
       <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -106,15 +121,68 @@
       <AssemblyReference>netstandard</AssemblyReference>
       <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
       <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.Cryptography</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence2" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequence2" sap:VirtualizedContainerService.HintSize="512,1062" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="op" />
+      <Variable x:TypeArguments="x:Int32" Name="op2" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:RepeatNumberOfTimesX DisplayName="Repeat Number of Times" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_1" NumberOfTimes="10000" StartAt="1">
+    <umae:AddSheetConnections BrowserParentItemId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID0}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntryItemUrl="{x:Null}" ManualEntrySiteUrl="{x:Null}" NewSheetName="{x:Null}" AuthScopesInvalid="False" BrowserDriveId="b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1" BrowserDriveName="Documents" BrowserItemFriendlyName="LeeCare_Forms.xlsx" BrowserItemId="01MZOHLOMYB3XECS53FZCKMQNGU7LWWXBK" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/_layouts/15/Doc.aspx?sourcedoc=%7B41EE0E98-BB4B-442E-A641-A6A7D76B5C2A%7D&amp;file=LeeCare_Forms.xlsx&amp;action=default&amp;mobileredirect=true" ConflictResolution="Fail" ConnectionId="e22df298-87eb-4320-9430-21dc5762ec24" DisplayName="Add Sheet" sap:VirtualizedContainerService.HintSize="450,235" sap2010:WorkflowViewState.IdRef="AddSheetConnections_1" ItemSelectionMode="Browse" SheetName="CSDD" UseConnectionService="True">
+      <umae:AddSheetConnections.DriveItemArgument>
+        <umafm:DriveItemArgument BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntryItemUrl="{x:Null}" ManualEntrySiteUrl="{x:Null}" BrowserDriveId="b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1" BrowserDriveName="Documents" BrowserItemFriendlyName="LeeCare_Forms.xlsx" BrowserItemId="01MZOHLOMYB3XECS53FZCKMQNGU7LWWXBK" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/_layouts/15/Doc.aspx?sourcedoc=%7B41EE0E98-BB4B-442E-A641-A6A7D76B5C2A%7D&amp;file=LeeCare_Forms.xlsx&amp;action=default&amp;mobileredirect=true" ConnectionKey="e22df298-87eb-4320-9430-21dc5762ec24" ItemSelectionMode="Browse" ParentFullPathHint="">
+          <umafm:DriveItemArgument.ItemIdBackup>
+            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
+              <usau:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="umafe:EDriveItemMode, scg:List(x:Object)" />
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </umafm:DriveItemArgument.ItemIdBackup>
+        </umafm:DriveItemArgument>
+      </umae:AddSheetConnections.DriveItemArgument>
+    </umae:AddSheetConnections>
+    <umae:ForEachSheetConnections BrowserParentItemId="{x:Null}" ConnectionAccountName="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID1}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntryItemUrl="{x:Null}" ManualEntrySiteUrl="{x:Null}" AuthScopesInvalid="False" BrowserDriveId="b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1" BrowserDriveName="Documents" BrowserItemFriendlyName="LeeCare_Forms.xlsx" BrowserItemId="01MZOHLOMYB3XECS53FZCKMQNGU7LWWXBK" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/_layouts/15/Doc.aspx?sourcedoc=%7B41EE0E98-BB4B-442E-A641-A6A7D76B5C2A%7D&amp;file=LeeCare_Forms.xlsx&amp;action=default&amp;mobileredirect=true" ConnectionId="e22df298-87eb-4320-9430-21dc5762ec24" DisplayName="For Each Sheet in Workbook" sap:VirtualizedContainerService.HintSize="450,404" sap2010:WorkflowViewState.IdRef="ForEachSheetConnections_1" ItemSelectionMode="Browse" Length="[op2]" UseConnectionService="True">
+      <umae:ForEachSheetConnections.Body>
+        <ActivityAction x:TypeArguments="x:String, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="x:String" Name="CurrentItem" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItemIndex" />
+          </ActivityAction.Argument2>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="354,108" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[op2]" />
+          </Sequence>
+        </ActivityAction>
+      </umae:ForEachSheetConnections.Body>
+      <umae:ForEachSheetConnections.DriveItemArgument>
+        <umafm:DriveItemArgument BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntryItemUrl="{x:Null}" ManualEntrySiteUrl="{x:Null}" BrowserDriveId="b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1" BrowserDriveName="Documents" BrowserItemFriendlyName="LeeCare_Forms.xlsx" BrowserItemId="01MZOHLOMYB3XECS53FZCKMQNGU7LWWXBK" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/_layouts/15/Doc.aspx?sourcedoc=%7B41EE0E98-BB4B-442E-A641-A6A7D76B5C2A%7D&amp;file=LeeCare_Forms.xlsx&amp;action=default&amp;mobileredirect=true" ConnectionKey="e22df298-87eb-4320-9430-21dc5762ec24" FullPathHint="One Drive/LeeCare to iCare/Templates/LeeCare_Forms.xlsx" ItemSelectionMode="Browse" ParentFullPathHint="">
+          <umafm:DriveItemArgument.ItemIdBackup>
+            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID1" StoredValue="Browse">
+              <usau:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="umafe:EDriveItemMode, scg:List(x:Object)" />
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </umafm:DriveItemArgument.ItemIdBackup>
+        </umafm:DriveItemArgument>
+      </umae:ForEachSheetConnections.DriveItemArgument>
+    </umae:ForEachSheetConnections>
+    <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="Read Storage Text" sap:VirtualizedContainerService.HintSize="450,165" sap2010:WorkflowViewState.IdRef="ReadStorageText_1" Path="Macleay Valley Resident List.txt" Result="[op]" StorageBucketName="Leecare_Roshana" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[op]" />
+    <ui:RepeatNumberOfTimesX DisplayName="Repeat Number of Times" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_1" NumberOfTimes="10000" StartAt="1">
       <ui:RepeatNumberOfTimesX.Body>
         <ActivityAction x:TypeArguments="x:Int32">
           <ActivityAction.Argument>

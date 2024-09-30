@@ -4,11 +4,12 @@
   "description": "Robotic Enterprise Framework for Downloading and manipulating patient data",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.Cryptography.Activities": "[1.5.0]",
     "UiPath.DataService.Activities": "[24.7.1]",
     "UiPath.Excel.Activities": "[2.23.5]",
     "UiPath.Form.Activities": "[24.10.2]",
     "UiPath.Mail.Activities": "[1.23.11]",
-    "UiPath.MicrosoftOffice365.Activities": "[2.6.25]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.7.22]",
     "UiPath.PDF.Activities": "[3.19.1]",
     "UiPath.System.Activities": "[24.10.3]",
     "UiPath.Testing.Activities": "[24.10.0]",

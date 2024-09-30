@@ -1,0 +1,15 @@
+{
+  "Value": {
+    "DetailedPlanCare/DownloadDetailedPlanCare.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "23da8c08-4576-436c-892b-dc0604aac66d",
+        "ActivityIdRef": "InvokeWorkflowFile_1",
+        "ActivityId": "1.38",
+        "ActivityName": "WordToPDF - Invoke Workflow File (DetailedPlanCare\\WordToPDF.xaml)",
+        "IsTransient": false
+      }
+    ]
+  }
+}
