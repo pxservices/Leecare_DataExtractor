@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="DownloadDetailedPlanCare" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_DownloadedWord_File" Type="OutArgument(si:FileInfo)" />
@@ -8,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>628,1430</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>943,2004</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadDetailedPlanCare_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -118,7 +117,7 @@
       <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadDetailedPlanCare" sap:VirtualizedContainerService.HintSize="512,1365" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadDetailedPlanCare" sap:VirtualizedContainerService.HintSize="608,1939" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="DownloadedRTF_File" />
       <Variable x:TypeArguments="si:FileInfo" Name="DownloadedPDF_File" />
@@ -129,19 +128,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="450,1277" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="546,1851" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1037" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1611" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Detailed Care Plan'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Detailed Care Plan'" sap:VirtualizedContainerService.HintSize="450,225" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#resident/5894" DesignTimeRectangle="688, 598, 64, 30" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Detailed Care Plan*' parentid='divMainContainer' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Detailed Care Plan ' parentid='divMainContainer' tag='SPAN' type='' class='resident-quick-icon-label text-center' check:innerText='Detailed Care Plan' /&gt;" Guid="6890be9f-6d77-4970-be85-1fed37bee521" InformativeScreenshot="743378f78ab965c634eed21990d6df14.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care - Betty ALEXANDER' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -156,7 +155,7 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[DownloadedPDF_File]" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
+            <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[DownloadedPDF_File]" sap:VirtualizedContainerService.HintSize="450,632" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
               <ui:GetLastDownloadedFile.Body>
                 <ActivityAction>
                   <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -185,46 +184,12 @@
               </ui:GetLastDownloadedFile.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:GetLastDownloadedFile>
-            <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[out_DownloadedWord_File]" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_3">
-              <ui:GetLastDownloadedFile.Body>
-                <ActivityAction>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Download PDF'" sap:VirtualizedContainerService.HintSize="354,216" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5894%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="dbf70422-1e44-4930-ae5a-55366c900157" CvTextArea="402, 256, 115, 15" CvTextArgument="Download Word" CvType="Text" DesignTimeRectangle="365, 253, 152, 21" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Download Word' class='downloadword' parentid='divMainContainer' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Download Word' class='downloadword' parentid='divMainContainer' tag='A' type='' check:innerText='Download Word' /&gt;" Guid="57beb4a9-b7a6-456f-b58d-85cd8624e8d3" InformativeScreenshot="399d54a687a1ede0a45d700444fda82d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                      </uix:NClick.Target>
-                      <uix:NClick.VerifyOptions>
-                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                          <uix:VerifyExecutionOptions.Retry>
-                            <InArgument x:TypeArguments="x:Boolean" />
-                          </uix:VerifyExecutionOptions.Retry>
-                          <uix:VerifyExecutionOptions.Timeout>
-                            <InArgument x:TypeArguments="x:Double" />
-                          </uix:VerifyExecutionOptions.Timeout>
-                        </uix:VerifyExecutionOptions>
-                      </uix:NClick.VerifyOptions>
-                    </uix:NClick>
-                  </Sequence>
-                </ActivityAction>
-              </ui:GetLastDownloadedFile.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:GetLastDownloadedFile>
-            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[path.join(ReportPath,out_DownloadedWord_File.Name)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="354,186" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[out_DownloadedWord_File.FullName]">
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[path.join(ReportPath,out_DownloadedWord_File.Name)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[out_DownloadedWord_File.FullName]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -232,7 +197,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CopyFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WordToPDF - Invoke Workflow File (DetailedPlanCare\WordToPDF.xaml)" sap:VirtualizedContainerService.HintSize="354,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DetailedPlanCare\WordToPDF_DetailedCarePlan.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WordToPDF - Invoke Workflow File (DetailedPlanCare\WordToPDF.xaml)" sap:VirtualizedContainerService.HintSize="450,260" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DetailedPlanCare\WordToPDF_DetailedCarePlan.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_WordDocPath">[path.join(ReportPath,out_DownloadedWord_File.Name)]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_PDFPath">[DownloadedPDF_File.FullName]</InArgument>
@@ -240,7 +205,7 @@
                 <InArgument x:TypeArguments="x:String" x:Key="in_ResidentCode">[in_ResidentCode]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cancel'" sap:VirtualizedContainerService.HintSize="354,218" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cancel'" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C9183%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="20f091d0-fa55-44eb-a852-82f879a74042" CvElementArea="1148, 199, 154, 41" CvTextArea="1207, 214, 39, 12" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="1202, 207, 50, 28" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='btn lc-green-button button-padding-sm' aaname='Cancel' check:innerText='Cancel' /&gt;" Guid="13603c87-6934-49a3-b719-caf52fdf211a" InformativeScreenshot="f682bfbe804fa613bfdd78ee0c626821.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>

@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="In_ResidentCode" Type="InArgument(x:String)" />
     <x:Property Name="in_ReportPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_FolderURL" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>943,1530</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>943,1642</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Weights_and_VitalsDataExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -143,7 +144,7 @@
       <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Weights_and_VitalsDataExtraction" sap:VirtualizedContainerService.HintSize="512,1465" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Weights_and_VitalsDataExtraction" sap:VirtualizedContainerService.HintSize="512,1577" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="VitalsDataTable" />
       <Variable x:TypeArguments="sd:DataTable" Name="FilteredVitalsDataTable" />
@@ -214,7 +215,7 @@
         <InArgument x:TypeArguments="sd:DataTable">[VitalsDataTable.AsEnumerable().Where(Function(x) CDate(split(x("Date").ToString,"/")(1)+"/"+split(x("Date").ToString,"/")(0)+"/"+split(x("Date").ToString,"/")(2)) &gt;= Now.AddMonths(-3)).CopyToDataTable()]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[FilteredVitalsDataTable]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Write CSV" FilePath="[path.Join(in_ReportPath,In_ResidentCode+&quot; - Weights_Vitals.csv&quot;)]" sap:VirtualizedContainerService.HintSize="450,234" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_1" ShouldQuote="True">
+    <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[FilteredVitalsDataTable]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Write CSV" FilePath="[path.Join(&quot;Data\Temp&quot;,In_ResidentCode+&quot; - Weights_Vitals.csv&quot;)]" sap:VirtualizedContainerService.HintSize="450,234" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_1" ShouldQuote="True">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -222,13 +223,23 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AppendWriteCsvFile>
-    <umaf:UploadFilesConnections AllResults="{x:Null}" BrowserParentItemId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FirstResult="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID0}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntryItemUrl="{x:Null}" ManualEntrySiteUrl="{x:Null}" Metadata="{x:Null}" MultipleFilesToUpload="{x:Null}" SingleFileToUpload="{x:Null}" AuthScopesInvalid="False" BrowserDriveId="b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1" BrowserDriveName="Documents" BrowserItemFriendlyName="Forms Download" BrowserItemId="01MZOHLOJCQJDDJG2RE5D37SNRMHRP36CF" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/Shared%20Documents/LeeCare%20to%20iCare/Templates/Forms%20Download" ConflictResolution="Replace" ConnectionId="e22df298-87eb-4320-9430-21dc5762ec24" DisplayName="Upload Files" FilesInputMode="MultipleByBuilder" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="UploadFilesConnections_1" ItemSelectionMode="Browse" UseConnectionService="True">
+    <umaf:UploadFilesConnections AllResults="{x:Null}" BrowserDriveName="{x:Reference __ReferenceID0}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Reference __ReferenceID1}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FirstResult="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID2}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" Metadata="{x:Null}" MultipleFilesToUpload="{x:Null}" SingleFileToUpload="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Replace" ConnectionId="e22df298-87eb-4320-9430-21dc5762ec24" DisplayName="Upload Files" FilesInputMode="MultipleByBuilder" sap:VirtualizedContainerService.HintSize="450,235" sap2010:WorkflowViewState.IdRef="UploadFilesConnections_1" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[in_FolderURL]" UseConnectionService="True">
       <umaf:UploadFilesConnections.DriveItemArgument>
-        <umafm:DriveItemArgument BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntryItemUrl="{x:Null}" ManualEntrySiteUrl="{x:Null}" BrowserDriveId="b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1" BrowserDriveName="Documents" BrowserItemFriendlyName="Forms Download" BrowserItemId="01MZOHLOJCQJDDJG2RE5D37SNRMHRP36CF" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/Shared%20Documents/LeeCare%20to%20iCare/Templates/Forms%20Download" ConnectionKey="e22df298-87eb-4320-9430-21dc5762ec24" ItemSelectionMode="Browse" ParentFullPathHint="">
+        <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ConnectionKey="e22df298-87eb-4320-9430-21dc5762ec24" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[in_FolderURL]" ParentFullPathHint="">
+          <umafm:DriveItemArgument.BrowserDriveName>
+            <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID0" />
+          </umafm:DriveItemArgument.BrowserDriveName>
+          <umafm:DriveItemArgument.BrowserSiteUrl>
+            <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID1" />
+          </umafm:DriveItemArgument.BrowserSiteUrl>
           <umafm:DriveItemArgument.ItemIdBackup>
-            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
+            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID2" StoredValue="ItemUrl">
               <usau:BackupSlot.BackupValues>
-                <scg:Dictionary x:TypeArguments="umafe:EDriveItemMode, scg:List(x:Object)" />
+                <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="3">
+                  <InArgument x:TypeArguments="x:String" />
+                  <InArgument x:TypeArguments="x:String" />
+                  <InArgument x:TypeArguments="x:String" />
+                </scg:List>
               </usau:BackupSlot.BackupValues>
             </usau:BackupSlot>
           </umafm:DriveItemArgument.ItemIdBackup>
@@ -245,7 +256,7 @@
       </umaf:UploadFilesConnections.FilesBackup>
       <umaf:UploadFilesConnections.FilesList>
         <scg:List x:TypeArguments="InArgument(upr:IResource)" Capacity="4">
-          <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(path.Join(in_ReportPath,In_ResidentCode+" - Weights_Vitals.csv"))]</InArgument>
+          <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(path.Join("Data\Temp",In_ResidentCode+" - Weights_Vitals.csv"))]</InArgument>
         </scg:List>
       </umaf:UploadFilesConnections.FilesList>
       <sap:WorkflowViewStateService.ViewState>
@@ -255,5 +266,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </umaf:UploadFilesConnections>
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="450,103" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[path.Join(&quot;Data\Temp&quot;,In_ResidentCode+&quot; - Weights_Vitals.csv&quot;)]" />
   </Sequence>
 </Activity>

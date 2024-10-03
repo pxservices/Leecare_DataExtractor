@@ -1,13 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DownloadDetailedPlanCare" this:DownloadDetailedPlanCare.in_ResidentName="Betty ALEXANDER" this:DownloadDetailedPlanCare.in_ResidentCode="MCV_01" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadDetailedPlanCare" this:DownloadDetailedPlanCare.in_ResidentName="Betty ALEXANDER" this:DownloadDetailedPlanCare.in_ResidentCode="MCV_01" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:umaf="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafe="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Models;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ResidentName" Type="InArgument(x:String)" />
     <x:Property Name="in_ResidentCode" Type="InArgument(x:String)" />
     <x:Property Name="in_FormName" Type="InArgument(x:String)" />
+    <x:Property Name="in_FolderURL" Type="InArgument(x:String)" />
   </x:Members>
+  <this:DownloadDetailedPlanCare.in_FolderURL>
+    <InArgument x:TypeArguments="x:String" />
+  </this:DownloadDetailedPlanCare.in_FolderURL>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>943,5544</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>943,2092</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadDetailedPlanCare_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,6 +63,12 @@
       <x:String>UiPath.Activities.System.Arrays</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
       <x:String>UiPath.Platform</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -131,9 +141,10 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
       <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadDetailedPlanCare" sap:VirtualizedContainerService.HintSize="612,5479" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadDetailedPlanCare" sap:VirtualizedContainerService.HintSize="608,1987" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="DownloadedRTF_File" />
       <Variable x:TypeArguments="si:FileInfo" Name="DownloadedPDF_File" />
@@ -145,13 +156,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="550,5391" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="546,1899" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="516,5151" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1659" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="FirstName" />
               <Variable x:TypeArguments="x:String" Name="SurName" />
@@ -173,23 +184,40 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="454,114" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="scg:IList(x:String)">[List_CustomerInfo]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="scg:IList(x:String)">[new list(of string)]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="CreateList`1_1" NewList="[List_CustomerInfo]">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,250" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="scg:IList(x:String)">[List_CustomerInfo]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="scg:IList(x:String)">[new list(of string)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="CreateList`1_1" NewList="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CreateList>
+                </Sequence>
+              </ui:CommentOut.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:CreateList>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Detailed Care Plan'" sap:VirtualizedContainerService.HintSize="454,225" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
+            </ui:CommentOut>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Detailed Care Plan'" sap:VirtualizedContainerService.HintSize="450,225" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#resident/5894" DesignTimeRectangle="688, 598, 64, 30" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Detailed Care Plan*' parentid='divMainContainer' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Detailed Care Plan ' parentid='divMainContainer' tag='SPAN' type='' class='resident-quick-icon-label text-center' check:innerText='Detailed Care Plan' /&gt;" Guid="6890be9f-6d77-4970-be85-1fed37bee521" InformativeScreenshot="743378f78ab965c634eed21990d6df14.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care - Betty ALEXANDER' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -204,7 +232,7 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[DownloadedWord_File]" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_3">
+            <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[DownloadedWord_File]" sap:VirtualizedContainerService.HintSize="450,592" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_3">
               <ui:GetLastDownloadedFile.Body>
                 <ActivityAction>
                   <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="Sequence_4">
@@ -215,7 +243,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Download PDF'" sap:VirtualizedContainerService.HintSize="354,216" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" Version="V3">
                       <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5894%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="dbf70422-1e44-4930-ae5a-55366c900157" CvTextArea="402, 256, 115, 15" CvTextArgument="Download Word" CvType="Text" DesignTimeRectangle="365, 253, 152, 21" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Download Word' class='downloadword' parentid='divMainContainer' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Download Word' class='downloadword' parentid='divMainContainer' tag='A' type='' check:innerText='Download Word' /&gt;" Guid="57beb4a9-b7a6-456f-b58d-85cd8624e8d3" InformativeScreenshot="399d54a687a1ede0a45d700444fda82d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                        <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" DesignTimeRectangle="18, 253, 141, 21" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='downloadpdf' parentid='divMainContainer' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='downloadpdf' parentid='divMainContainer' tag='A' type='' aaname=' Download PDF' check:innerText='Download PDF' /&gt;" Guid="bbacf385-1896-4f1f-a2cb-06eec8daba3e" InformativeScreenshot="4e8d535668e9f5236735c78e0fe21fde.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
                       <uix:NClick.VerifyOptions>
                         <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -233,195 +261,103 @@
               </ui:GetLastDownloadedFile.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:GetLastDownloadedFile>
-            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="Data\Temp" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="454,191" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[DownloadedWord_File.fullname]" />
-            <uix:NGetText DisplayName="Get Text 'First Name'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[FirstName]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="328, 581, 23, 14" CvType="AnyWordGroup" DesignTimeRectangle="329, 582, 162, 15" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='34' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="fbe57060-0684-4009-95fa-37cc6afb9131" InformativeScreenshot="92604ec115987358a65a9824962352b1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="145, 581, 63, 12" CvTextArgument="First Name" CvType="Text" DesignTimeRectangle="146, 582, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='33' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='First Name' /&gt;" Guid="3de8629a-4490-4db5-aada-b94144962428" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_1" ItemToAppend="[FirstName]" List="[List_CustomerInfo]" />
-            <uix:NGetText DisplayName="Get Text 'Surname'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[SurName]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="328, 598, 70, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 374, 64, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Timmermans' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="1d21a634-e0e1-482b-a363-3c55e8e48a1b" ImageBase64="" InformativeScreenshot="d54c0ca676feacbaea5508cdb3eec729.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="146, 598, 52, 12" CvTextArgument="Surname" CvType="Text" DesignTimeRectangle="146, 375, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='37' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='Surname' /&gt;" Guid="1609d7c5-85b0-47f2-9a95-35801f81ebe3" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[path.join(&quot;Data\Temp&quot;,&quot;DetailedCarePlanReport-&quot;+in_ResidentCode+&quot;.pdf&quot;)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[DownloadedWord_File.FullName]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[SurName]" List="[List_CustomerInfo]" />
-            <uix:NGetText DisplayName="Get Text 'Admitted Location'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[AdmittedLocation]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" DesignTimeRectangle="329, 634, 162, 43" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='46' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="61a01596-1967-4693-a860-8a61c6a5ffe4" InformativeScreenshot="e2206eb9814d74b5a92f21c80ddbc601.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="98a41afb-4399-49fd-9dda-64a138efd01b" CvTextArea="145, 633, 106, 12" CvTextArgument="Admitted Location" CvType="Text" DesignTimeRectangle="146, 633, 105, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Admitted Location' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Admitted Location' type='' tag='SPAN' class='' check:innerText='Admitted Location' /&gt;" Guid="f2f9e68c-32f9-432c-817d-36da4dc3bfb0" SearchSteps="FuzzySelector, CV" />
+            </ui:CopyFile>
+            <umaf:UploadFilesConnections AllResults="{x:Null}" BrowserDriveName="{x:Reference __ReferenceID0}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Reference __ReferenceID1}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FirstResult="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID2}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" Metadata="{x:Null}" MultipleFilesToUpload="{x:Null}" SingleFileToUpload="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Replace" ConnectionId="e22df298-87eb-4320-9430-21dc5762ec24" DisplayName="Upload Files" FilesInputMode="MultipleByBuilder" sap:VirtualizedContainerService.HintSize="450,235" sap2010:WorkflowViewState.IdRef="UploadFilesConnections_1" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[in_FolderURL]" UseConnectionService="True">
+              <umaf:UploadFilesConnections.DriveItemArgument>
+                <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ConnectionKey="e22df298-87eb-4320-9430-21dc5762ec24" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[in_FolderURL]" ParentFullPathHint="">
+                  <umafm:DriveItemArgument.BrowserDriveName>
+                    <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID0" />
+                  </umafm:DriveItemArgument.BrowserDriveName>
+                  <umafm:DriveItemArgument.BrowserSiteUrl>
+                    <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID1" />
+                  </umafm:DriveItemArgument.BrowserSiteUrl>
+                  <umafm:DriveItemArgument.ItemIdBackup>
+                    <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID2" StoredValue="ItemUrl">
+                      <usau:BackupSlot.BackupValues>
+                        <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="3">
+                          <InArgument x:TypeArguments="x:String" />
+                          <InArgument x:TypeArguments="x:String" />
+                          <InArgument x:TypeArguments="x:String" />
+                        </scg:List>
+                      </usau:BackupSlot.BackupValues>
+                    </usau:BackupSlot>
+                  </umafm:DriveItemArgument.ItemIdBackup>
+                </umafm:DriveItemArgument>
+              </umaf:UploadFilesConnections.DriveItemArgument>
+              <umaf:UploadFilesConnections.FilesBackup>
+                <usau:BackupSlot x:TypeArguments="umafe:FilesInputMode" StoredValue="MultipleByBuilder">
+                  <usau:BackupSlot.BackupValues>
+                    <scg:List x:TypeArguments="x:Object" x:Key="MultipleByVariable" Capacity="1">
+                      <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[""]</InArgument>
                     </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Split(AdmittedLocation,environment.NewLine)]">
-              <ui:ForEach.Body>
-                <ActivityAction x:TypeArguments="x:String">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_3" ItemToAppend="[currentText]" List="[List_CustomerInfo]" />
-                  </Sequence>
-                </ActivityAction>
-              </ui:ForEach.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ForEach>
-            <uix:NGetText DisplayName="Get Text 'ACF ID'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[ACF_ID]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C9624%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="2aefd6d4-0cc9-401f-8683-b4ae9f94aeb6" CvTextArea="328, 578, 28, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 578, 26, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='5207' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="327dc5d3-49bd-446f-8e1d-b4267413b0e5" InformativeScreenshot="840a079146203b81d71f565f92e32af5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="2aefd6d4-0cc9-401f-8683-b4ae9f94aeb6" CvTextArea="144, 578, 42, 12" CvTextArgument="ACF ID" CvType="Text" DesignTimeRectangle="146, 579, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='43' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='ACF ID' /&gt;" Guid="b39f73c1-83d8-4b74-9390-e1682004d15b" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_4" ItemToAppend="[ACF_ID]" List="[List_CustomerInfo]" />
-            <uix:NGetText DisplayName="Get Text 'D.O.B'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[DOB]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="55e14d9b-28f7-4a9d-8e6c-7e919caa8fe6" CvTextArea="328, 496, 61, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 465, 60, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' type='' tag='SPAN' class='' /&gt;" Guid="70e358cb-15ef-4ede-b317-dc632971319e" ImageBase64="" InformativeScreenshot="5aad39cc6028b37c642398736fec274b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="55e14d9b-28f7-4a9d-8e6c-7e919caa8fe6" CvTextArea="145, 496, 35, 12" CvTextArgument="D.O.B" CvType="Text" DesignTimeRectangle="146, 466, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='52' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='D.O.B' /&gt;" Guid="d466992f-bfce-429c-8865-fccf396c828f" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_5" ItemToAppend="[DOB]" List="[List_CustomerInfo]" />
-            <uix:NGetText DisplayName="Get Text 'Admission Date'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[AdmissionDate]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="b4a61424-4360-4621-a0d6-8202e1950ced" CvTextArea="328, 513, 61, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 540, 60, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' tableRow='1' tag='SPAN' css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span' idx='2' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' class='' tag='SPAN' type='' /&gt;" Guid="99e47751-fbee-4e15-b39a-5c2aef4e97ac" ImageBase64="" InformativeScreenshot="32299d182259df85b16acb41981a4eee.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="b4a61424-4360-4621-a0d6-8202e1950ced" CvTextArea="145, 513, 92, 12" CvTextArgument="Admission Date" CvType="Text" DesignTimeRectangle="145, 540, 92, 12" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='56' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='Admission Date' /&gt;" Guid="8cd37952-c6d1-4bfd-9e5e-9dd8afc870ab" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_6" ItemToAppend="[AdmissionDate]" List="[List_CustomerInfo]" />
-            <uix:NGetText DisplayName="Get Text 'Medicare No.'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[MedicareNumber]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="7a6d46bf-ed8b-4e7f-8f92-174151acc1e5" CvTextArea="328, 331, 68, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 557, 66, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='2156199508' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="20d74055-0fbe-45f6-b642-3cbf449a29c0" ImageBase64="" InformativeScreenshot="c3d9be6fd6f9a3ae103f91e132abdd59.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="7a6d46bf-ed8b-4e7f-8f92-174151acc1e5" CvTextArea="145, 331, 76, 12" CvTextArgument="Medicare No." CvType="Text" DesignTimeRectangle="146, 557, 75, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medicare No.' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medicare No.' type='' tag='SPAN' class='' check:innerText='Medicare No.' /&gt;" Guid="7f54b311-ea9a-4d8b-b95e-fc219ee574e3" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
+                  </usau:BackupSlot.BackupValues>
+                </usau:BackupSlot>
+              </umaf:UploadFilesConnections.FilesBackup>
+              <umaf:UploadFilesConnections.FilesList>
+                <scg:List x:TypeArguments="InArgument(upr:IResource)" Capacity="4">
+                  <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(path.join("Data\Temp","DetailedCarePlanReport-"+in_ResidentCode+".pdf"))]</InArgument>
+                </scg:List>
+              </umaf:UploadFilesConnections.FilesList>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_7" ItemToAppend="[MedicareNumber]" List="[List_CustomerInfo]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uasa:AppendItemToList>
-            <uix:NGetText DisplayName="Get Text 'Pension Entitlement No.'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_11" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[Pension]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5562%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="83a00385-f603-4949-a64d-8a1e4c4367f5" CvTextArea="328, 574, 76, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 575, 149, 15" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='60' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="846c431c-3ee9-4452-b51e-8747e4fd03b1" InformativeScreenshot="08e99ef94bdf26bacf575a813fcb75d0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="83a00385-f603-4949-a64d-8a1e4c4367f5" CvTextArea="145, 574, 139, 12" CvTextArgument="Pension Entitlement No." CvType="Text" DesignTimeRectangle="146, 574, 138, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Pension Entitlement No.' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Pension Entitlement*' type='' tag='SPAN' class='' check:innerText='Pension Entitlement No.' /&gt;" Guid="d5ef1ece-d102-4fd8-a12b-e3f54c261ec8" SearchSteps="FuzzySelector" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_11" ItemToAppend="[Pension]" List="[List_CustomerInfo]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uasa:AppendItemToList>
-            <uix:NGetText DisplayName="Get Text 'Next of Kin'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[NextOFKin]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5118%7Ctrue%7Ctrue%7Cfalse%7C0" DesignTimeRectangle="329, 542, 149, 28" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='65' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="b9a0a964-f1ea-40d2-9ea2-01e84fcbc73a" ImageBase64="" InformativeScreenshot="120712117ac30a08e5a571dde6a9961f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="5bdda1a7-678c-4319-9014-5ea6a015fc14" CvTextArea="145, 541, 64, 12" CvTextArgument="Next of Kin" CvType="Text" DesignTimeRectangle="146, 541, 63, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Next of Kin' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Next of Kin' type='' tag='SPAN' class='' check:innerText='Next of Kin' /&gt;" Guid="5013854d-3c31-4b9e-82ed-4f1eed8e042b" SearchSteps="FuzzySelector" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_8" ItemToAppend="[NextOFKin]" List="[List_CustomerInfo]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uasa:AppendItemToList>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <TryCatch.Try>
-                <Sequence sap:VirtualizedContainerService.HintSize="416,437" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            </umaf:UploadFilesConnections>
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[path.join(&quot;Data\Temp&quot;,&quot;DetailedCarePlanReport-&quot;+in_ResidentCode+&quot;.pdf&quot;)]" />
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[DownloadedWord_File.FullName]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,50" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,2131" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NGetText ContinueOnError="False" DisplayName="Get Text '- Home Phone'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[HomePhone]" Timeout="10" Version="V3">
+                  <uix:NGetText DisplayName="Get Text 'First Name'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[FirstName]" Version="V3">
                     <uix:NGetText.Target>
-                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5118%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="37f22ea9-73c8-48f2-94ba-ed07ff198509" CvTextArea="328, 559, 74, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 560, 149, 14" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='69' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="24589ee5-b8bf-46dc-8440-4013dd3975e3" InformativeScreenshot="fc81fd3899c99ce21a883508712c1a13.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="328, 581, 23, 14" CvType="AnyWordGroup" DesignTimeRectangle="329, 582, 162, 15" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='34' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="fbe57060-0684-4009-95fa-37cc6afb9131" InformativeScreenshot="92604ec115987358a65a9824962352b1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
                           <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CVScreenId="37f22ea9-73c8-48f2-94ba-ed07ff198509" CvTextArea="148, 559, 82, 12" CvTextArgument="- Home Phone" CvType="Text" DesignTimeRectangle="146, 559, 84, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname=' - Home Phone' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='*Home Phone' type='' tag='SPAN' class='' check:innerText='- Home Phone' /&gt;" Guid="01921a28-9867-418e-b632-1bf85dc24e0d" SearchSteps="FuzzySelector" />
+                            <uix:Target CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="145, 581, 63, 12" CvTextArgument="First Name" CvType="Text" DesignTimeRectangle="146, 582, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='33' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='First Name' /&gt;" Guid="3de8629a-4490-4db5-aada-b94144962428" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_1" ItemToAppend="[FirstName]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <uix:NGetText DisplayName="Get Text 'Surname'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[SurName]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="328, 598, 70, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 374, 64, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Timmermans' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="1d21a634-e0e1-482b-a363-3c55e8e48a1b" ImageBase64="" InformativeScreenshot="d54c0ca676feacbaea5508cdb3eec729.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="ff1ba2fb-4117-4260-8edb-7b5330225f0e" CvTextArea="146, 598, 52, 12" CvTextArgument="Surname" CvType="Text" DesignTimeRectangle="146, 375, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='37' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='Surname' /&gt;" Guid="1609d7c5-85b0-47f2-9a95-35801f81ebe3" SearchSteps="FuzzySelector, CV" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
@@ -433,150 +369,373 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NGetText>
-                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,158" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_12" ItemToAppend="[HomePhone]" List="[List_CustomerInfo]">
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[SurName]" List="[List_CustomerInfo]" />
+                  <uix:NGetText DisplayName="Get Text 'Admitted Location'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[AdmittedLocation]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" DesignTimeRectangle="329, 634, 162, 43" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='46' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="61a01596-1967-4693-a860-8a61c6a5ffe4" InformativeScreenshot="e2206eb9814d74b5a92f21c80ddbc601.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="98a41afb-4399-49fd-9dda-64a138efd01b" CvTextArea="145, 633, 106, 12" CvTextArgument="Admitted Location" CvType="Text" DesignTimeRectangle="146, 633, 105, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Admitted Location' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Admitted Location' type='' tag='SPAN' class='' check:innerText='Admitted Location' /&gt;" Guid="f2f9e68c-32f9-432c-817d-36da4dc3bfb0" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Split(AdmittedLocation,environment.NewLine)]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_3" ItemToAppend="[currentText]" List="[List_CustomerInfo]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </uasa:AppendItemToList>
-                </Sequence>
-              </TryCatch.Try>
-              <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="s:Exception">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                    </ActivityAction.Argument>
-                  </ActivityAction>
-                </Catch>
-              </TryCatch.Catches>
-            </TryCatch>
-            <uix:NGetText DisplayName="Get Text '- Mobile'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_12" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[Mobile]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="09fafd19-06cf-4676-83f5-1aa42cf0025a" CvTextArea="328, 383, 75, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 383, 73, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='0418 653 515' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="59c7b531-c243-4a34-86a9-dd0f975ac27f" InformativeScreenshot="a93d7d15954c721f24bb945e8d20b9e2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="09fafd19-06cf-4676-83f5-1aa42cf0025a" CvTextArea="149, 383, 46, 12" CvTextArgument="- Mobile" CvType="Text" DesignTimeRectangle="146, 384, 163, 14" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' tableRow='1' tag='SPAN' innertext='*Mobile' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='SPAN' innertext='*Mobile' aaname='' check:text='- Mobile' /&gt;" Guid="00be2684-8e3b-4d1c-8c6b-f791e5bc40e7" SearchSteps="FuzzySelector" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_9" ItemToAppend="[Mobile]" List="[List_CustomerInfo]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uasa:AppendItemToList>
-            <uix:NGetText DisplayName="Get Text 'Medical Practitioner's'" sap:VirtualizedContainerService.HintSize="454,189" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[MedicalPractioner]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="f613fdbb-cbe5-44f7-8702-2e2cee4012bb" CvTextArea="328, 400, 54, 14" CvType="AnyWordGroup" DesignTimeRectangle="329, 607, 149, 28" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='67' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="5cf1a56b-df10-432d-8859-eb07fc0a0c59" ImageBase64="" InformativeScreenshot="1753c8a3e37228982750401487d7bdd3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="f613fdbb-cbe5-44f7-8702-2e2cee4012bb" CvTextArea="145, 400, 161, 12" CvTextArgument="Medical Practitioner's Name" CvType="Text" DesignTimeRectangle="146, 606, 160, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medical Practitioner&amp;apos;s Name' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medical Practitioner&amp;apos;s Name' type='' tag='SPAN' class='' check:innerText='Medical Practitioner&amp;apos;s Name' /&gt;" Guid="e3c15f5d-2ebb-4c44-846a-d2218479bd8e" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uix:NGetText>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="454,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_10" ItemToAppend="[MedicalPractioner]" List="[List_CustomerInfo]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uasa:AppendItemToList>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="454,697" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <TryCatch.Try>
-                <Sequence sap:VirtualizedContainerService.HintSize="416,437" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="DrPhone" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <uix:NGetText DisplayName="Get Text 'Medical Practitioner's'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_13" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[DrPhone]" Timeout="10" Version="V3">
+                  </ui:ForEach>
+                  <uix:NGetText DisplayName="Get Text 'ACF ID'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[ACF_ID]" Version="V3">
                     <uix:NGetText.Target>
-                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C7508%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="c0a20090-3418-4415-96df-1aef4a35f609" CvTextArea="328, 513, 68, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 513, 66, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='0417312976' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="b1b524e5-ad06-4f40-b064-9c84758d5391" ImageBase64="" InformativeScreenshot="eb8381412ab11eb95bf2bb32c4d37bfb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C9624%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="2aefd6d4-0cc9-401f-8683-b4ae9f94aeb6" CvTextArea="328, 578, 28, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 578, 26, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='5207' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="327dc5d3-49bd-446f-8e1d-b4267413b0e5" InformativeScreenshot="840a079146203b81d71f565f92e32af5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
                           <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CVScreenId="c0a20090-3418-4415-96df-1aef4a35f609" CvTextArea="145, 513, 97, 12" CvTextArgument="Dr's Work Phone" CvType="Text" DesignTimeRectangle="146, 513, 96, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Dr&amp;apos;s Work Phone' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Dr&amp;apos;s Work Phone' type='' tag='SPAN' class='' /&gt;" Guid="732cab4f-6a6c-486e-9ac7-3942c8d8c5f4" SearchSteps="FuzzySelector" />
+                            <uix:Target CVScreenId="2aefd6d4-0cc9-401f-8683-b4ae9f94aeb6" CvTextArea="144, 578, 42, 12" CvTextArgument="ACF ID" CvType="Text" DesignTimeRectangle="146, 579, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='43' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='ACF ID' /&gt;" Guid="b39f73c1-83d8-4b74-9390-e1682004d15b" SearchSteps="FuzzySelector, CV" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NGetText.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NGetText>
-                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,158" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_13" ItemToAppend="[DrPhone]" List="[List_CustomerInfo]">
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_4" ItemToAppend="[ACF_ID]" List="[List_CustomerInfo]" />
+                  <uix:NGetText DisplayName="Get Text 'D.O.B'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[DOB]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="55e14d9b-28f7-4a9d-8e6c-7e919caa8fe6" CvTextArea="328, 496, 61, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 465, 60, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' type='' tag='SPAN' class='' /&gt;" Guid="70e358cb-15ef-4ede-b317-dc632971319e" ImageBase64="" InformativeScreenshot="5aad39cc6028b37c642398736fec274b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="55e14d9b-28f7-4a9d-8e6c-7e919caa8fe6" CvTextArea="145, 496, 35, 12" CvTextArgument="D.O.B" CvType="Text" DesignTimeRectangle="146, 466, 163, 15" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='52' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='D.O.B' /&gt;" Guid="d466992f-bfce-429c-8865-fccf396c828f" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_5" ItemToAppend="[DOB]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <uix:NGetText DisplayName="Get Text 'Admission Date'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[AdmissionDate]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C3215%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="b4a61424-4360-4621-a0d6-8202e1950ced" CvTextArea="328, 513, 61, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 540, 60, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' tableRow='1' tag='SPAN' css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span' idx='2' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl matching:aaname='regex' aaname='\d{1,2}\D\d{1,2}\D\d{2,4}' class='' tag='SPAN' type='' /&gt;" Guid="99e47751-fbee-4e15-b39a-5c2aef4e97ac" ImageBase64="" InformativeScreenshot="32299d182259df85b16acb41981a4eee.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="b4a61424-4360-4621-a0d6-8202e1950ced" CvTextArea="145, 513, 92, 12" CvTextArgument="Admission Date" CvType="Text" DesignTimeRectangle="145, 540, 92, 12" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='56' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' check:innerText='Admission Date' /&gt;" Guid="8cd37952-c6d1-4bfd-9e5e-9dd8afc870ab" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_6" ItemToAppend="[AdmissionDate]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <uix:NGetText DisplayName="Get Text 'Medicare No.'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[MedicareNumber]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="7a6d46bf-ed8b-4e7f-8f92-174151acc1e5" CvTextArea="328, 331, 68, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 557, 66, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='2156199508' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="20d74055-0fbe-45f6-b642-3cbf449a29c0" ImageBase64="" InformativeScreenshot="c3d9be6fd6f9a3ae103f91e132abdd59.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="7a6d46bf-ed8b-4e7f-8f92-174151acc1e5" CvTextArea="145, 331, 76, 12" CvTextArgument="Medicare No." CvType="Text" DesignTimeRectangle="146, 557, 75, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medicare No.' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medicare No.' type='' tag='SPAN' class='' check:innerText='Medicare No.' /&gt;" Guid="7f54b311-ea9a-4d8b-b95e-fc219ee574e3" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_7" ItemToAppend="[MedicareNumber]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <uix:NGetText DisplayName="Get Text 'Pension Entitlement No.'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_11" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[Pension]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5562%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="83a00385-f603-4949-a64d-8a1e4c4367f5" CvTextArea="328, 574, 76, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 575, 149, 15" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='60' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="846c431c-3ee9-4452-b51e-8747e4fd03b1" InformativeScreenshot="08e99ef94bdf26bacf575a813fcb75d0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="83a00385-f603-4949-a64d-8a1e4c4367f5" CvTextArea="145, 574, 139, 12" CvTextArgument="Pension Entitlement No." CvType="Text" DesignTimeRectangle="146, 574, 138, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Pension Entitlement No.' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Pension Entitlement*' type='' tag='SPAN' class='' check:innerText='Pension Entitlement No.' /&gt;" Guid="d5ef1ece-d102-4fd8-a12b-e3f54c261ec8" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_11" ItemToAppend="[Pension]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <uix:NGetText DisplayName="Get Text 'Next of Kin'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[NextOFKin]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5118%7Ctrue%7Ctrue%7Cfalse%7C0" DesignTimeRectangle="329, 542, 149, 28" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='65' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="b9a0a964-f1ea-40d2-9ea2-01e84fcbc73a" ImageBase64="" InformativeScreenshot="120712117ac30a08e5a571dde6a9961f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="5bdda1a7-678c-4319-9014-5ea6a015fc14" CvTextArea="145, 541, 64, 12" CvTextArgument="Next of Kin" CvType="Text" DesignTimeRectangle="146, 541, 63, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Next of Kin' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Next of Kin' type='' tag='SPAN' class='' check:innerText='Next of Kin' /&gt;" Guid="5013854d-3c31-4b9e-82ed-4f1eed8e042b" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_8" ItemToAppend="[NextOFKin]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <Sequence sap:VirtualizedContainerService.HintSize="416,437" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NGetText ContinueOnError="False" DisplayName="Get Text '- Home Phone'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[HomePhone]" Timeout="10" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C5118%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="37f22ea9-73c8-48f2-94ba-ed07ff198509" CvTextArea="328, 559, 74, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 560, 149, 14" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='69' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="24589ee5-b8bf-46dc-8440-4013dd3975e3" InformativeScreenshot="fc81fd3899c99ce21a883508712c1a13.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="37f22ea9-73c8-48f2-94ba-ed07ff198509" CvTextArea="148, 559, 82, 12" CvTextArgument="- Home Phone" CvType="Text" DesignTimeRectangle="146, 559, 84, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname=' - Home Phone' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='*Home Phone' type='' tag='SPAN' class='' check:innerText='- Home Phone' /&gt;" Guid="01921a28-9867-418e-b632-1bf85dc24e0d" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NGetText>
+                        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,158" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_12" ItemToAppend="[HomePhone]" List="[List_CustomerInfo]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uasa:AppendItemToList>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <uix:NGetText DisplayName="Get Text '- Mobile'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_12" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[Mobile]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="09fafd19-06cf-4676-83f5-1aa42cf0025a" CvTextArea="328, 383, 75, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 383, 73, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='0418 653 515' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="59c7b531-c243-4a34-86a9-dd0f975ac27f" InformativeScreenshot="a93d7d15954c721f24bb945e8d20b9e2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="09fafd19-06cf-4676-83f5-1aa42cf0025a" CvTextArea="149, 383, 46, 12" CvTextArgument="- Mobile" CvType="Text" DesignTimeRectangle="146, 384, 163, 14" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' tableRow='1' tag='SPAN' innertext='*Mobile' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='SPAN' innertext='*Mobile' aaname='' check:text='- Mobile' /&gt;" Guid="00be2684-8e3b-4d1c-8c6b-f791e5bc40e7" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_9" ItemToAppend="[Mobile]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <uix:NGetText DisplayName="Get Text 'Medical Practitioner's'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[MedicalPractioner]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C2832%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="f613fdbb-cbe5-44f7-8702-2e2cee4012bb" CvTextArea="328, 400, 54, 14" CvType="AnyWordGroup" DesignTimeRectangle="329, 607, 149, 28" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='67' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' aaname='' class='' tag='SPAN' /&gt;" Guid="5cf1a56b-df10-432d-8859-eb07fc0a0c59" ImageBase64="" InformativeScreenshot="1753c8a3e37228982750401487d7bdd3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="f613fdbb-cbe5-44f7-8702-2e2cee4012bb" CvTextArea="145, 400, 161, 12" CvTextArgument="Medical Practitioner's Name" CvType="Text" DesignTimeRectangle="146, 606, 160, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medical Practitioner&amp;apos;s Name' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Medical Practitioner&amp;apos;s Name' type='' tag='SPAN' class='' check:innerText='Medical Practitioner&amp;apos;s Name' /&gt;" Guid="e3c15f5d-2ebb-4c44-846a-d2218479bd8e" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_10" ItemToAppend="[MedicalPractioner]" List="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uasa:AppendItemToList>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <Sequence sap:VirtualizedContainerService.HintSize="416,437" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="DrPhone" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NGetText DisplayName="Get Text 'Medical Practitioner's'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_13" ScopeIdentifier="e4c21087-28d0-4a7a-bb82-b1d8fb2fdc2d" TextString="[DrPhone]" Timeout="10" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewcareplan/1%7C7508%7Ctrue%7Ctrue%7Cfalse%7C0" CVScreenId="c0a20090-3418-4415-96df-1aef4a35f609" CvTextArea="328, 513, 68, 12" CvType="AnyWordGroup" DesignTimeRectangle="329, 513, 66, 14" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='0417312976' tableRow='1' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="b1b524e5-ad06-4f40-b064-9c84758d5391" ImageBase64="" InformativeScreenshot="eb8381412ab11eb95bf2bb32c4d37bfb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="c0a20090-3418-4415-96df-1aef4a35f609" CvTextArea="145, 513, 97, 12" CvTextArgument="Dr's Work Phone" CvType="Text" DesignTimeRectangle="146, 513, 96, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Dr&amp;apos;s Work Phone' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='form_frame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Dr&amp;apos;s Work Phone' type='' tag='SPAN' class='' /&gt;" Guid="732cab4f-6a6c-486e-9ac7-3942c8d8c5f4" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NGetText>
+                        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,158" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_13" ItemToAppend="[DrPhone]" List="[List_CustomerInfo]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uasa:AppendItemToList>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WordToPDF - Invoke Workflow File (DetailedPlanCare\WordToPDF.xaml)" sap:VirtualizedContainerService.HintSize="354,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DetailedPlanCare\WordToPDF_DetailedCarePlan.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_WordDocPath">["Data\Temp\"+DownloadedWord_File.Name]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ResidentCode">[in_ResidentCode]</InArgument>
+                      <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_ResidentData">[List_CustomerInfo]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </uasa:AppendItemToList>
+                  </ui:InvokeWorkflowFile>
                 </Sequence>
-              </TryCatch.Try>
-              <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="s:Exception">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                    </ActivityAction.Argument>
-                  </ActivityAction>
-                </Catch>
-              </TryCatch.Catches>
-            </TryCatch>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WordToPDF - Invoke Workflow File (DetailedPlanCare\WordToPDF.xaml)" sap:VirtualizedContainerService.HintSize="454,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DetailedPlanCare\WordToPDF_DetailedCarePlan.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_WordDocPath">["Data\Temp\"+DownloadedWord_File.Name]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ResidentCode">[in_ResidentCode]</InArgument>
-                <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_ResidentData">[List_CustomerInfo]</InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="454,105" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[&quot;Data\Temp\&quot;+DownloadedWord_File.Name]" />
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>

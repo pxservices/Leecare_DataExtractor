@@ -1,15 +1,19 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DownloadProgressNotes" this:DownloadProgressNotes.in_ResidentName="Betty ALEXANDER" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadProgressNotes" this:DownloadProgressNotes.in_ResidentName="Betty ALEXANDER" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:umaf="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafe="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Models;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ResidentName" Type="InArgument(x:String)" />
     <x:Property Name="in_ResidentCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_ForlderURL" Type="InArgument(x:String)" />
   </x:Members>
   <this:DownloadProgressNotes.in_ResidentCode>
     <InArgument x:TypeArguments="x:String" />
   </this:DownloadProgressNotes.in_ResidentCode>
+  <this:DownloadProgressNotes.in_ForlderURL>
+    <InArgument x:TypeArguments="x:String" />
+  </this:DownloadProgressNotes.in_ForlderURL>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>943,2599</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>943,1738</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadProgressNotes_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -55,6 +59,18 @@
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
       <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Platform</x:String>
+      <x:String>Microsoft.Graph</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -119,9 +135,17 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadProgressNotes" sap:VirtualizedContainerService.HintSize="608,2534" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadProgressNotes" sap:VirtualizedContainerService.HintSize="608,1633" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="out_DownloadedWord_File" />
       <Variable x:TypeArguments="scg:IList(x:String)" Name="List_CustomerInfo" />
@@ -131,13 +155,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="546,1136" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Lee Care - Betty ALEXANDER" sap:VirtualizedContainerService.HintSize="546,57" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,887" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,422" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Location" />
             </Sequence.Variables>
@@ -146,7 +170,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Progress Notes'" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Progress Notes'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#resident/5894" DesignTimeRectangle="762, 368, 63, 30" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Progress Notes ' parentid='divMainContainer' tag='SPAN' class='resident-quick-icon-label text-center' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Progress Notes ' parentid='divMainContainer' tag='SPAN' class='resident-quick-icon-label text-center' type='' check:text='Progress Notes' /&gt;" Guid="5c0093a0-fd52-4953-a72f-7ae650ce1823" InformativeScreenshot="7cd160aab504566e04b80accdd3da135.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -167,40 +191,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="scg:IList(x:String)">[List_CustomerInfo]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="scg:IList(x:String)">[new list(of string)]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="CreateList`1_1" NewList="[List_CustomerInfo]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CreateList>
-            <uix:NGetText DisplayName="Get Text 'Progress Notes'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" TextString="[Location]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#home/progressnotes/resident/2832" DesignTimeRectangle="133, 419, 179, 54" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' isleaf='1' tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' isleaf='1' class='font-size-14 fw-light' tag='DIV' /&gt;" Guid="568a6ba0-2181-43c7-b46f-962befca15cf" InformativeScreenshot="792b0af2861cc88d09ee699ef85393a3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care - Progress Notes' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="2f7eea45-0a0f-43a6-9b18-df8fadb7170a" CvTextArea="19, 230, 116, 18" CvTextArgument="Progress Notes" CvType="Text" DesignTimeRectangle="20, 225, 114, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='divMainContainer' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='divMainContainer' tag='SPAN' type='' class='header-page-title' aaname='Progress Notes' /&gt;" Guid="5f8129b8-d6af-4f71-bf73-70cb55ba8732" SearchSteps="FuzzySelector" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </uix:NGetText>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Report'" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Report'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#home/progressnotes/resident/5894" CVScreenId="2794206b-9286-4986-8e6b-605469a83998" CvElementArea="140, 220, 67, 35" CvTextArea="164, 231, 36, 15" CvTextArgument="Report" CvType="Button" DesignTimeRectangle="142, 222, 62, 30" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='divMainContainer' tag='A' aaname=' Report' innertext=' Report' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='divMainContainer' tag='A' aaname=' Report' innertext=' Report' type='' class='lc-pnotes-print-report ms-1 ms-lg-2 pnotes-report bi bi-printer-fill pn-button-shadow' check:text='Report' /&gt;" Guid="085c8204-5783-49bb-878b-aae6fe27d82a" InformativeScreenshot="3f3f42ff0b4ea18a24cc51d3606aad92.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care - Progress Notes' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -216,13 +207,63 @@
               </uix:NClick.VerifyOptions>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="434,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_1" ItemToAppend="[Location]" List="[List_CustomerInfo]" />
-            <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[in_ResidentName]" List="[List_CustomerInfo]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,50" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,637" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="scg:IList(x:String)">[List_CustomerInfo]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="scg:IList(x:String)">[new list(of string)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="CreateList`1_1" NewList="[List_CustomerInfo]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CreateList>
+                  <uix:NGetText DisplayName="Get Text 'Progress Notes'" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="cbfc21b8-48f8-4c86-9a7c-051eaa69b76f" TextString="[Location]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#home/progressnotes/resident/2832" DesignTimeRectangle="133, 419, 179, 54" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' isleaf='1' tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' isleaf='1' class='font-size-14 fw-light' tag='DIV' /&gt;" Guid="568a6ba0-2181-43c7-b46f-962befca15cf" InformativeScreenshot="792b0af2861cc88d09ee699ef85393a3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care - Progress Notes' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="2f7eea45-0a0f-43a6-9b18-df8fadb7170a" CvTextArea="19, 230, 116, 18" CvTextArgument="Progress Notes" CvType="Text" DesignTimeRectangle="20, 225, 114, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='divMainContainer' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='divMainContainer' tag='SPAN' type='' class='header-page-title' aaname='Progress Notes' /&gt;" Guid="5f8129b8-d6af-4f71-bf73-70cb55ba8732" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NGetText>
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="434,165" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_1" ItemToAppend="[Location]" List="[List_CustomerInfo]" />
+                  <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[in_ResidentName]" List="[List_CustomerInfo]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
@@ -231,18 +272,18 @@
       </uix:NApplicationCard.TargetApp>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Lee Care" sap:VirtualizedContainerService.HintSize="546,1115" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="0c35ab02-dcd6-4445-aa3e-38c45b46ac46" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Lee Care" sap:VirtualizedContainerService.HintSize="546,1440" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="0c35ab02-dcd6-4445-aa3e-38c45b46ac46" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,866" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1191" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -259,7 +300,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Download PDF'" sap:VirtualizedContainerService.HintSize="354,216" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c35ab02-dcd6-4445-aa3e-38c45b46ac46" Version="V3">
                       <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewmessage/getreport?progressnote=1&amp;START_DATE=20240831&amp;status=1&amp;res=9628&amp;unreadonly=1&amp;unadmitted=0&amp;sort=CREATED_DATE&amp;facilityid=1" CVScreenId="81b5b231-6304-4c11-ae47-0037f2e91607" CvTextArea="402, 256, 115, 15" CvTextArgument="Download Word" CvType="Text" DesignTimeRectangle="365, 253, 152, 21" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' Download Word' class='downloadword' parentid='divMainContainer' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Download Word' class='downloadword' parentid='divMainContainer' tag='A' type='' check:innerText='Download Word' /&gt;" Guid="0503b0f8-8b04-4aff-afb8-0b85687c3464" InformativeScreenshot="399d54a687a1ede0a45d700444fda82d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+                        <uix:TargetAnchorable BrowserURL="http://10.18.0.10:8080/roshana-care-prod/#reports/listreport/viewmessage/getreport?progressnote=1&amp;START_DATE=20240901&amp;status=1&amp;res=2832&amp;unreadonly=1&amp;unadmitted=0&amp;sort=CREATED_DATE&amp;facilityid=1" DesignTimeRectangle="18, 253, 141, 21" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='downloadpdf' parentid='divMainContainer' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='downloadpdf' parentid='divMainContainer' tag='A' type='' aaname=' Download PDF' check:innerText='Download PDF' /&gt;" Guid="4e1f9595-194d-4c3f-8327-7512890f7ddf" InformativeScreenshot="4e8d535668e9f5236735c78e0fe21fde.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Lee Care' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
                       <uix:NClick.VerifyOptions>
                         <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -288,14 +329,53 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:GetLastDownloadedFile>
-            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="Data\Temp" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="450,184" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[out_DownloadedWord_File.fullname]">
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[path.join(&quot;Data\Temp&quot;,&quot;ProgressNotes - &quot;+in_ResidentCode+&quot;.pdf&quot;)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[out_DownloadedWord_File.FullName]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CopyFile>
+            <umaf:UploadFilesConnections AllResults="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FirstResult="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID0}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" Metadata="{x:Null}" MultipleFilesToUpload="{x:Null}" SingleFileToUpload="{x:Null}" AuthScopesInvalid="False" BrowserDriveName="Documents" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/Shared%20Documents/LeeCare%20to%20iCare/Templates/Leecare%20Output/Forms%20Download" ConflictResolution="Replace" ConnectionId="e22df298-87eb-4320-9430-21dc5762ec24" DisplayName="Upload Files" FilesInputMode="MultipleByBuilder" sap:VirtualizedContainerService.HintSize="450,235" sap2010:WorkflowViewState.IdRef="UploadFilesConnections_1" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[in_ForlderURL]" UseConnectionService="True">
+              <umaf:UploadFilesConnections.DriveItemArgument>
+                <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" BrowserDriveName="Documents" BrowserSiteUrl="https://processx.sharepoint.com/sites/RoshanaGroup/Shared%20Documents/LeeCare%20to%20iCare/Templates/Leecare%20Output/Forms%20Download" ConnectionKey="e22df298-87eb-4320-9430-21dc5762ec24" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[in_ForlderURL]" ParentFullPathHint="">
+                  <umafm:DriveItemArgument.ItemIdBackup>
+                    <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="ItemUrl">
+                      <usau:BackupSlot.BackupValues>
+                        <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="3">
+                          <InArgument x:TypeArguments="x:String">01MZOHLOJCQJDDJG2RE5D37SNRMHRP36CF</InArgument>
+                          <InArgument x:TypeArguments="x:String">Forms Download</InArgument>
+                          <InArgument x:TypeArguments="x:String">b!VJqLy-7QlE-_3iyImfEvCuGjSSWM4oRAtK26CQ1jLOYsqvHN7KbXRKmobYnbLLv1</InArgument>
+                        </scg:List>
+                      </usau:BackupSlot.BackupValues>
+                    </usau:BackupSlot>
+                  </umafm:DriveItemArgument.ItemIdBackup>
+                </umafm:DriveItemArgument>
+              </umaf:UploadFilesConnections.DriveItemArgument>
+              <umaf:UploadFilesConnections.FilesBackup>
+                <usau:BackupSlot x:TypeArguments="umafe:FilesInputMode" StoredValue="MultipleByBuilder">
+                  <usau:BackupSlot.BackupValues>
+                    <scg:List x:TypeArguments="x:Object" x:Key="MultipleByVariable" Capacity="1">
+                      <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[""]</InArgument>
+                    </scg:List>
+                  </usau:BackupSlot.BackupValues>
+                </usau:BackupSlot>
+              </umaf:UploadFilesConnections.FilesBackup>
+              <umaf:UploadFilesConnections.FilesList>
+                <scg:List x:TypeArguments="InArgument(upr:IResource)" Capacity="4">
+                  <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(path.join("Data\Temp","ProgressNotes - "+in_ResidentCode+".pdf"))]</InArgument>
+                </scg:List>
+              </umaf:UploadFilesConnections.FilesList>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:MoveFile>
+            </umaf:UploadFilesConnections>
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[path.join(&quot;Data\Temp&quot;,&quot;ProgressNotes - &quot;+in_ResidentCode+&quot;.pdf&quot;)]" />
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[out_DownloadedWord_File.FullName]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
@@ -309,12 +389,29 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WordToPDF - ProgressNotes - Invoke Workflow File (ProgressNotes\WordToPDF - ProgressNotes.xaml)" sap:VirtualizedContainerService.HintSize="546,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ProgressNotes\WordToPDF - ProgressNotes.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_WordDocPath">["Data\Temp\"+out_DownloadedWord_File.Name]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ResidentCode">[in_ResidentCode]</InArgument>
-        <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_ResidentData">[List_CustomerInfo]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="546,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,283" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WordToPDF - ProgressNotes - Invoke Workflow File (ProgressNotes\WordToPDF - ProgressNotes.xaml)" sap:VirtualizedContainerService.HintSize="354,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ProgressNotes\WordToPDF - ProgressNotes.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_WordDocPath">["Data\Temp\"+out_DownloadedWord_File.Name]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ResidentCode">[in_ResidentCode]</InArgument>
+              <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_ResidentData">[List_CustomerInfo]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
   </Sequence>
 </Activity>
