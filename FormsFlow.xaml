@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="FormsFlow" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="943,1822" sap2010:WorkflowViewState.IdRef="FormsFlow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="FormsFlow" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="943,1862" sap2010:WorkflowViewState.IdRef="FormsFlow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -166,8 +166,8 @@
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="x:String" x:Key="in_PatientName" xml:space="preserve">[CurrentRow("Last Name").ToString+" "+
 CurrentRow("First Name").ToString]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_MenuName">Assessments / Evaluations</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_FormName">Nutrition</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_MenuName">Assessments / Plans</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_FormName">Wound</InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -245,11 +245,12 @@ CurrentRow("First Name").ToString]</InArgument>
             </ui:CommentOut>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="FormsDataExtractor - Invoke Workflow File (Forms\FormsDataExtractor.xaml)" sap:VirtualizedContainerService.HintSize="558,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Forms\FormsDataExtractor.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_FormsDT" />
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_FormsConfigDT" />
-                <InArgument x:TypeArguments="x:String" x:Key="in_FormName">Nutrition Assessment</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FormName">Wound &amp; Skin Management Plan</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_ResidentName">[CurrentRow(0).ToString]</InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="in_RowIndex">[ind]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_RowIndex">[ind+1]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FormsReportDownloadFlag" />
+                <InArgument x:TypeArguments="x:String" x:Key="in_ResidentCode" />
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
